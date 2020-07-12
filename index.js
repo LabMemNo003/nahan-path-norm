@@ -63,6 +63,7 @@ const detector_add_trailing_slash = {
 };
 
 const detector_del_trailing_slash = {
-    check(path) { return path[path.length - 1] === '/'; },
-    modify(path) { return path.replace(/\/+$/, ''); },
+    pattern: /(?<=^\/.*?)\/+$/,
+    check(path) { return path !== '/' && path[path.length - 1] === '/'; },
+    modify(path) { return path.replace(this.pattern, ''); },
 };
