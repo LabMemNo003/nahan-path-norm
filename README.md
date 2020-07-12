@@ -23,6 +23,6 @@ Path-Normalize middleware for nahan.
 ``` javascript
 const app =
     Pipeline(
-        PathNorm({ del_trailing_slash = true }),
+        PathNorm({ del_trailing_slash: true }),
     );
 ```

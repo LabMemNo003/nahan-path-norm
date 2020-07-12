@@ -1,6 +1,6 @@
 {
   "name": "nahan-path-norm",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Path-Normalize middleware for nahan.",
   "main": "index.js",
   "scripts": {
