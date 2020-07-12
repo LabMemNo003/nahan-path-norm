@@ -9,9 +9,8 @@ function PathNorm({
     res_status_code = 302,
 } = {}) {
 
-    if (!(res_status_code in [301, 302]))
+    if (![301, 302].includes(res_status_code))
         throw new Error('Invalid response status code.');
-
 
     if (add_trailing_slash && del_trailing_slash)
         throw new Error(
