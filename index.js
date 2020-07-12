@@ -6,7 +6,12 @@ function PathNorm({
     continuous_slashes = true,
     add_trailing_slash = false,
     del_trailing_slash = false,
+    res_status_code = 302,
 } = {}) {
+
+    if (!(res_status_code in [301, 302]))
+        throw new Error('Invalid response status code.');
+
 
     if (add_trailing_slash && del_trailing_slash)
         throw new Error(
@@ -35,7 +40,7 @@ function PathNorm({
             for (let d of detectors)
                 path = d.modify(path);
 
-            ctx.res.statusCode = 302;
+            ctx.res.statusCode = res_status_code;
             ctx.res.setHeader('Location', path);
             ctx.res.end();
         } else {
